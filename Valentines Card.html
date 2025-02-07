@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #ffcccb;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+    }
+    h1 {
+      color: #d32f2f;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    p {
+    font-family: 'Dancing Script', cursive; 
+    font-size: 18px;
+    color: #b91c1c; 
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(255, 192, 203, 0.2); 
+    border-left: 4px solid #b91c1c; 
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .gif-container {
+      margin: 10px 0;
+    }
+    .valentine-gif {
+      width: 500px;
+      height: auto;
+      border-radius: 10px;
+    }
+    .buttons {
+      margin-top: 50px;
+    }
+    .yes-button, .no-button {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .yes-button {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .no-button {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="main-container">
+    <h1>Will you be my Valentine?</h1>
+    <div class="buttons">
+      <button id="yesButton" class="yes-button">Yes</button>
+      <button id="noButton" class="no-button">No</button>
+    </div>
+    <div class="gif-container">
+      <img src="https://i.pinimg.com/originals/2f/1a/b4/2f1ab4adffb51d6f565a2eeaea71cfa9.gif" alt="Valentine GIF" class="valentine-gif">
+    </div>
+
+    <footer>
+      <p>Created with 💖 by Calvin</p>
+    </footer>
+  </div>
+  <script>
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const messages = ["Are you sure?😃", "Really sure?😅", "For real for real?😥", "Please, I’ll send you meme to make it up 😇", "Deadass?😭", "I’m on my knees 🥺", "You wouldn't do this to me... right? 🥺👉👈", "Have mercy, I’m just a lil guy 🥺", "Pls, I’ll make you cookies, just reconsider 🥺🍪", "Is there a way to change your mind?","I’ll literally cry, don’t make me do it 😭", "Not like this... NOT LIKE THIS 😭","Alexa, play ‘It Will Rain.'","I’ll sacrifice my entire playlist for this, pls don’t 😢","Don’t leave me hanging like an unread message 😭", "Why? 😔", "Please, I’ll literally write a whole novel on how you broke me 🥺", "Please, I’m begging you, my whole existence is at stake 🥺", "Don’t make me send you ‘it’s not you, it’s me’ texts 💔", "Noooo please last chance 😭", "You're breaking my heart 💔"];
+    let messageIndex = 0;
+    
+    noButton.addEventListener('click', () => {
+      noButton.textContent = messages[messageIndex % messages.length];
+      messageIndex++;
+      const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+      yesButton.style.fontSize = `${currentSize * 1.2}px`;
+    });
+    
+    yesButton.addEventListener('click', () => {
+      document.getElementById('main-container').innerHTML = `
+        <h1>Yay! You are my Valentine! ❤️</h1>
+        <p>I know you’re not too into relationships right now because you’re focused on your dreams and goals.</p>
+        <p>Even if we don’t personally know each other, just know that I’m here for you and rooting for you in everything you do.</p>
+        <p>I don’t expect anything in return, I just wanted to express my appreciation, and knowing you, even from a distance, already makes me happy.</p>
+        <p>I’ll patiently wait for the time when you’re ready, but until then, I’ll continue to support and appreciate you from afar.</p>
+        <p>Happy Valentine's Day! 🥰</p>
+
+        <div class="gif-container">
+          <img src="https://i.pinimg.com/originals/16/55/f8/1655f888a4c8f2063d2bbb7f9e08859f.gif" alt="Happy Valentine GIF" class="valentine-gif">
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
